@@ -29,8 +29,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	boolean isShownView1;
 	boolean isShownView2;
 	boolean isShownView3;
-	boolean isShownView4;
-	boolean isShownView5;
+	//	boolean isShownView4;
+	//	boolean isShownView5;
 
 	boolean animating;
 
@@ -168,22 +168,22 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		}
 	}
-
-	void onClick4() {
-		isShownView4 = !isShownView4;
-		if (isShownView4) {
-
-		} else {
-
-		}
-	}
-
-	void onClick5() {
-		isShownView5 = !isShownView5;
-		if (isShownView5) {
-
-		} else {
-
-		}
-	}
+	//
+	//	void onClick4() {
+	//		isShownView4 = !isShownView4;
+	//		if (isShownView4) {
+	//
+	//		} else {
+	//
+	//		}
+	//	}
+	//
+	//	void onClick5() {
+	//		isShownView5 = !isShownView5;
+	//		if (isShownView5) {
+	//
+	//		} else {
+	//
+	//		}
+	//	}
 }
