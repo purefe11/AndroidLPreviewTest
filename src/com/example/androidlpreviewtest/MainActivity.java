@@ -4,19 +4,20 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewAnimationUtils;
-import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	Button btn1;
-	Button btn2;
-	Button btn3;
+	View btn1;
+	View btn2;
+	View btn3;
 	//	Button btn4;
 	//	Button btn5;
 
@@ -27,21 +28,25 @@ public class MainActivity extends Activity implements OnClickListener {
 	//	View view5;
 
 	boolean isShownView1;
-	boolean isShownView2;
-	boolean isShownView3;
 	//	boolean isShownView4;
 	//	boolean isShownView5;
 
 	boolean animating;
+
+	private static final String KEY_ID = "ViewTransitionValues:id";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		findViewById(R.id.btn1).setOnClickListener(this);
-		findViewById(R.id.btn2).setOnClickListener(this);
-		findViewById(R.id.btn3).setOnClickListener(this);
+		btn1 = findViewById(R.id.btn1);
+		btn2 = findViewById(R.id.btn2);
+		btn3 = findViewById(R.id.btn3);
+
+		btn1.setOnClickListener(this);
+		btn2.setOnClickListener(this);
+		btn3.setOnClickListener(this);
 		//		findViewById(R.id.btn4).setOnClickListener(this);
 		//		findViewById(R.id.btn5).setOnClickListener(this);
 
@@ -50,6 +55,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		//		view3 = findViewById(R.id.view3);
 		//		view4 = findViewById(R.id.view4);
 		//		view5 = findViewById(R.id.view5);
+
+
 	}
 
 	@Override
@@ -152,21 +159,19 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	void onClick2() {
-		isShownView2 = !isShownView2;
-		if (isShownView2) {
 
-		} else {
-
-		}
 	}
 
 	void onClick3() {
-		isShownView3 = !isShownView3;
-		if (isShownView3) {
+		Intent intent = new Intent(this, Test1Activity.class);
 
-		} else {
+		//		((ViewGroup)btn3.getParent()).setTransitionGroup(false);
 
-		}
+		// create the transition animation - the images in the layouts
+		// of both activities are defined with android:viewName="test"
+		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, btn3, "test");
+		// start the new activity
+		startActivity(intent, options.toBundle());
 	}
 	//
 	//	void onClick4() {
